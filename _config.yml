@@ -3,3 +3,9 @@ markdown: kramdown
 =======
 markdown: kramdown
 >>>>>>> 2a667f1b540ddf1fb4b3741ae64fe52aa50fc248
+
+title: Robfromerd.github.io
+description: My home on GitHub
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-minimal
