@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+<!-- INSTRUCTIONS (once code saved to your computer): INSPECT THE PAGE IN CHROME, 
+CLICK THE DEVICE PREVIEW ICON, CHOOSE A PHONE IN THE DROPDOWN, NOTICE HOW THE DESIGN
+FITS THE DEVICE WIDTH, THEN COMMENT OUT THE FOLLOWING META TAG, REFRESH THE PAGE, 
+NOTICE HOW THE DESIGN BECOMES A SHRUNKEN VERSION OF THE DESKTOP VIEW -->  
+ <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+
+    <title>Viewport Demo</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        body {
+            padding: 1rem;
+        }
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+@media (min-width: 576px) 
+{ 
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
+}
+
+
+.text-center {
+text-align:center;
+}
+    </style>
+
+</head>
+
+<body>
+
+    <h1 text-center>People Design in the Design Center</h1>
+    <p class="text-center">On mobile with the meta tag, the navigation below should be <strong>centered</strong> but on desktop it should be <strong>aligned to the right. When we comment out the viewport meta tag -- we lose this RESPONSIVE DESIGN when viewed on an actual phone.</strong>.</p>
+<div class="flex-container">
+  <div>Link 1</div>
+  <div>Link 2</div>
+  <div>Link 3</div>  
+</div>
+<img src="https://studio252.netlify.app/images/designcenter1600.jpg" alt="Art and design center">
+
+</body>
+</html>
