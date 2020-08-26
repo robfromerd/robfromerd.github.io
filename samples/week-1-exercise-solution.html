@@ -1,28 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Code Samples and More for DIGD417</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
-    <link rel="icon" href="images/favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/prism.css">
-</head>
-
-<body>
-
-<h1>Code Samples for Week 1</h1>
-<header></header>
-<h2 class="text-center">Code Sample <mark>1.2</mark>: <em>Browser Defaults</em></h2>
-<div class="toolbar"><div class="toolbar-item"> <button class="btn-topcopy" id="btn-copy" data-clipboard-action="copy" data-clipboard-target="pre.language-markup" aria-label="Copied">Copy</button></div></div>
-<script type="text/plain" class="language-markup line-numbers"><!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://raw.githack.com/twbs/bootstrap/v4-dev/dist/css/bootstrap-reboot.css">
+
 <style>
 /* INSTRUCTIONS: 
 1. The client wants the image to bleed full width, the text in the paragraphs to be 80% 
@@ -57,23 +37,35 @@ width:100%;
 max-width:600px;
 display:block;
 }
+.container {margin:1rem;width:80%;margin:auto;}
 
+@media (max-width:767px) {
+.container {
+width:100%;
+padding:0 1rem;
+}
+}
 </style>
 <title>Don't forget to change the title</title>
 </head>
 <body>
-
+<main>
+<section>
 <img src="https://thereturnondesign.net/images/designcenter1600.jpg" class="designcenter">
+</section>
+<section>
+<div class="container">
 <h1>The heading</h1>
 
-<p>Browsers have a default margin of 8 pixels on the body element. (If you inspect the body 
-element, you will see the "user agent stylesheet" sets the body to have an 8px margin.) 
-However, the client wants the image of the design center to bleed full width 
+
+
+<p>Browsers have a default margin of 8 pixels on the body element. 
+However, the client wants the image of the design center to bleed full width&mdash; 
 with the text's line length limited at a desktop view.</p>
 
 <p>They even gave you 
 a mockup they made in Figma:</p>
-<p><img src="https://robfromerd.github.io/images/figmamockupforweek1.jpg" alt="mockup" class="mockup"></p>
+<img src="https://robfromerd.github.io/images/figmamockupforweek1.jpg" alt="mockup" class="mockup">
 
 <p>What to do? See the instructions in the comment within the style block.</p>
 
@@ -84,19 +76,9 @@ browser default rules. Instead they use a pre-made set of rules <a href="https:/
 <p><a href="https://codepen.io/robfromerd/pen/BaKpeBe">Here is a Codepen example</a> 
 of different ways of starting out with either a reboot or 
 "normalized" version of these pesky browser resets.</p>
+</div>
+</section>
+</main>
 </body>
 </html>
 
-</script>
-
-    
-    
-    
-    
-    
-    <script src="../js/prism.js"></script>
-    <script src="../js/fetch.js"></script>
-    <script src="../js/clipboard.min.js"></script>
-    <script src="../js/copy-button.js"></script>  
-</body>
-</html>
