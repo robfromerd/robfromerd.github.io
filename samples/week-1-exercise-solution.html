@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />    
-<link rel="stylesheet" href="https://raw.githack.com/twbs/bootstrap/v4-dev/dist/css/bootstrap-reboot.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://raw.githack.com/twbs/bootstrap/v4-dev/dist/css/bootstrap-reboot.css">
 
-<style>
-/* INSTRUCTIONS: 
+    <style>
+        /* INSTRUCTIONS: 
 1. The client wants the image to bleed full width, the text in the paragraphs to be 80% 
 of the browser window (but wants a smaller margin on mobile) and wants the code to 
 be semantically correct.  
@@ -30,58 +30,64 @@ f.) write a media query to change the div's width to be larger at a mobile size.
 */
 
 
-.designcenter {
-width:100%;
-height:auto;
-}
-.mockup {
-margin:auto;
-width:100%;
-max-width:600px;
-display:block;
-}
-.container {margin:1rem;width:80%;margin:auto;}
+        .designcenter {
+            width: 100%;
+            height: auto;
+        }
 
-@media (max-width:767px) {
-.container {
-width:100%;
-padding:0 1rem;
-}
-}
-</style>
-<title>Don't forget to change the title</title>
+        .mockup {
+            margin: auto;
+            width: 100%;
+            max-width: 600px;
+            display: block;
+        }
+
+        .container {
+            margin: 1rem;
+            width: 80%;
+            margin: auto;
+        }
+
+        @media (max-width:767px) {
+            .container {
+                width: 100%;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+    <title>Don't forget to change the title</title>
 </head>
+
 <body>
-<main>
-<section>
-<img src="https://thereturnondesign.net/images/designcenter1600.jpg" class="designcenter">
-</section>
-<section>
-<div class="container">
-<h1>The heading</h1>
+    <main>
+        <section>
+            <img src="https://thereturnondesign.net/images/designcenter1600.jpg" class="designcenter">
+        </section>
+        <section>
+            <div class="container">
+                <h1>The heading</h1>
 
 
 
-<p>Browsers have a default margin of 8 pixels on the body element. 
-However, the client wants the image of the design center to bleed full width&mdash; 
-with the text's line length limited at a desktop view.</p>
+                <p>Browsers have a default margin of 8 pixels on the body element.
+                    However, the client wants the image of the design center to bleed full width&mdash;
+                    with the text's line length limited at a desktop view.</p>
 
-<p>They even gave you 
-a mockup they made in Figma:</p>
-<img src="https://robfromerd.github.io/images/figmamockupforweek1.jpg" alt="mockup" class="mockup">
+                <p>They even gave you
+                    a mockup they made in Figma:</p>
+                <img src="https://robfromerd.github.io/images/figmamockupforweek1.jpg" alt="mockup" class="mockup">
 
-<p>What to do? See the instructions in the comment within the style block.</p>
+                <p>What to do? See the instructions in the comment within the style block.</p>
 
-<h2>Background</h2>
-<p>Working developers today do not write a whole bunch of 
-browser default rules. Instead they use a pre-made set of rules <a href="https://raw.githack.com/twbs/bootstrap/v4-dev/dist/css/bootstrap-reboot.css">like this one from Bootstrap</a>.
+                <h2>Background</h2>
+                <p>Working developers today do not write a whole bunch of
+                    browser default rules. Instead they use a pre-made set of rules <a href="https://raw.githack.com/twbs/bootstrap/v4-dev/dist/css/bootstrap-reboot.css">like this one from Bootstrap</a>.
 
-<p><a href="https://codepen.io/robfromerd/pen/BaKpeBe">Here is a Codepen example</a> 
-of different ways of starting out with either a reboot or 
-"normalized" version of these pesky browser resets.</p>
-</div>
-</section>
-</main>
-</body>
-</html>
+                    <p><a href="https://codepen.io/robfromerd/pen/BaKpeBe">Here is a Codepen example</a>
+                        of different ways of starting out with either a reboot or
+                        "normalized" version of these pesky browser resets.</p>
+            </div>
+        </section>
+    </main>
+</body></html>
 
