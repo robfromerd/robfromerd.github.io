@@ -30,6 +30,7 @@ font-family: 'Recursive', sans-serif;
   min-height:2rem;
 }
 .item p {
+   -ms-flex-item-align: center;
    align-self: center;
   justify-self: center;
   text-transform:uppercase;
@@ -77,3 +78,7 @@ media (min-width: 576px){
 }
 
 .highlight {background:#ffff00}
+
+.mt-1 {
+margin-top:1rem;    
+}
