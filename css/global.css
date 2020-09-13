@@ -82,3 +82,11 @@ media (min-width: 576px){
 .mt-1 {
 margin-top:1rem;    
 }
+.git-box-parent{
+         display: grid;
+        
+place-items: center;   
+}
+.git-box {
+    width:50%;    
+}
