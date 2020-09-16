@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 4</h1>
+<header></header>
+<h2 class="text-center">Code Sample <mark>4.1</mark>: <em>Getting Started with Understrap and Woocommerce</em></h2>
+<h3>Setting Up Understrap and Understrap Child</h3>
+    <ol class="instructions">
+    <li>Start and login to your Local by Flywheel Site (append /wp-admin)</li> 
+    <li>From the Dashboard, go to Appearance > themes > add new > search for Understrap</li>
+    <li>Install Understrap</li>
+    <li>Download the Understrap child theme from this Github repository (click green code button and then choose download Zip): <a href="https://github.com/understrap/understrap-child">https://github.com/understrap/understrap-child</a></li>
+    <li>Unzip it if you need to and then you will have a folder called "understrap-child-master"</li>
+    <li>Put this folder at the following location in your Local WordPress site: app > public > wp-content > themes  (WordPress child themes sit alongside parent themes in the themes directory because the child theme has code in it that refers to the name of the parent)</li>
+    <li>From Appearance themes, first activate Understrap, then Understrap-child</li>
+    <li>Browse to the site to see if it has changed from the default theme you started with</li> 
+    </ol>
+<h3>Installing Woocomerce</h3>    
+    <ol class="instructions">
+        <li>Install the Woocommerce plugin by going to Plugins > Add New</li>
+        <li>Activate the Woocommerce plugin and go through the Setup Wizard -- Just make some guesses as to the correct choices (can change later)</li>
+        <li>Add one product by going to Products > Add New</li>
+        <li>Browse the site and notice that you lack any nav items.</li>
+        <li>Go to Appearance > menus where you will create a new menu (call it top nav), choose the "Primary Menu" checkbox, and then save it. Once it has been saved, add the Shop and Cart pages to the menu with the Add to Menu choice and click Save Menu.</li>
+        <li>Browse the site to the shop page and add the product you made to your cart.</li>
+        <li>Browse the site to the cart page and and for next week do the exercise in the code sample below.</li>
+    </ol>
+        
+        
+<script src="https://gist.github.com/robfromerd/49240c281cdf50a2605f0fe69ba999b3.js"></script>
+<img src="../images/child-theme-exercise.png" alt="details">    
+
+   
+    
+    
+    
+    
+    
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
