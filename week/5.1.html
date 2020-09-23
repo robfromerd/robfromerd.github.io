@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 5</h1>
+<header></header>
+<h2 class="text-center">Code Sample <mark>5.1</mark>: <em>Overriding the Parent Theme</em></h2>
+    <h3>Setting a Static Home Page with a Woocommerce Product Teaser</h3>
+      <ol class="instructions">
+          <li>Create a page called "home" from the dashboard</li>
+          <li>Create at least four products and give them square product images : Look for a "set product image" in field that you can populate with an image from the WordPress Media Library, which lets you crop images to a a square aspect ratio. </li>
+          <li>From within the Settings > Reading in the dashboard, set home to be the "static" home page.</li>
+          <li>Use the Woocommerce documentation (<a href="https://docs.woocommerce.com/document/woocommerce-shortcodes/#section-11" target="_blank">https://docs.woocommerce.com/document/woocommerce-shortcodes/#section-11</a>) to create a shortcode that shows four products on the home page in a row of four columns, hint: these shortcodes do not need all the optional parameters shown: </li>        
+    </ol>      
+<h3>Modifying the Read More Links and the Footer</h3>
+    <ol class="instructions">
+    <li>Add the code block from the code sample below to the end of your CHILD theme's functions.php file.</li> 
+    <li>This code overrides two functions in the PARENT theme: one that creates the site information notice in the footer and one that creates the "Read More" buttons in post archive pages.</li> 
+    <li>For this exercise, let's imagine your site will have a "Product News" section: Go the Dashboard and create two fake news posts -- You can just retitle any existing posts or create new ones, it does not matter. Add a News category to each post via the post edit screen.</li>
+    <li>Add the news category to the primary menu and change the navigation label to Product News.</li>
+    <li>Our imaginary client is almost happy but now they have asked us to add two "greater than" symbols after the read more links on what they are calling the "Product News" page, which is really just the built-in archive page for the news category. This requires you to find out what the "html entity" is for the greater than sign and then place it twice inside the code that we output to make our read more links.</li> 
+           <li>Finally the client wants the copyright notice to read &copy; 2018 &ndash; whatever the current year is. Luckily we already have a PHP variable in our code for the current year which we already have defined in our code (<code>$footer_year</code>). All we need to do is place that variable in the right place within the <code>echo</code> statement.    
+    </ol>
+    <img src="../images/week5-1.png" alt="instructions" > 
+    <script src="https://gist.github.com/robfromerd/3021fc6f74bc5021d3a0c7f3e6caef5c.js"></script>
+<h3>Adding a YouTube Embed Field to the Product Detail Page</h3>    
+    <ol class="instructions">
+        <li>Install the Advanced Custom Fields plugin by going to Plugins > Add New</li>
+        <li>From within ACF add a new Field Group called YouTube Embed. Inside the group add an oembed field also called YouTube Embed, making sure the "machine" name is "youtube_embed"</li>
+        <li>Under location within ACF, choose show this field if post type is equal to product. </li>
+        <li>If you edit a product post, you will now see the custom field for YouTube embed. Add the "share" link from a suitable-for-work video on YouTube.</li> 
+        <li>Now because your post template part needs to reference that field, paste in the code sample below in a logical place, which is in this case just before the closing tag for the main element (which looks like this in the code <code>&lt;/main&gt;</code></li>
+        <li>One last thing: You need the Boostrap 4 markup that is required to make this embed responsive. Look it up and wrap the <code>iframe</code> in our code with the appropriate markup. </li>
+        
+    </ol>
+     <img src="../images/week5.1-2.jpg" alt="instructions" > 
+    <script src="https://gist.github.com/robfromerd/8d2bf61107b38f8b4f428c9894ae0973.js"></script>    
+   <h3>Filtering the Navigation Menu to Add a Search Bar that Collapses Down with Other Menu Items</h3>       
+    <ol class="instructions">
+        <li>Add the filter below to your functions.php (remembering to make sure this filter has your correct primary menu location)/li>
+        <li>Add some unique text like "Aardvark" to two of your products and check if it is working.</li>
+        <li>The client has asked for a magnifying glass instead of the word "Search" next to the search input.</li>
+        <li>Fix this by going to this page <a href="https://fontawesome.com/v4.7.0/icon/search" target="_blank">https://fontawesome.com/v4.7.0/icon/search</a> and thinking . . . </li>
+    </ol>
+
+   <script src="https://gist.github.com/robfromerd/1f261c5e0b9d0c6ba19fbe47c161b1c8.js"></script>
+    
+    
+    
+    
+    
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
