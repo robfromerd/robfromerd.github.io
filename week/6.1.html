@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 6</h1>
+<header></header>
+<h2 class="text-center">Code Sample <mark>6.1</mark>: <em>Refining Our Site</em></h2>
+    <h3><mark>A: Adding a Site Logo</mark> within the Bootstrap "Navbar Brand" Anchor Element</h3>
+<img src="../images/week6HomeTasks-a.png" alt="task a">    
+      <ol class="instructions">
+          <li>We need a site logo, so go to Appearance > Customize > Site Identity and set a logo ("skip cropping" to continue with a horizontal logo), which will automatically go inside an &lt;a&gt; element with a class of "navbar-brand"</li>
+          <li>Horizontal (landscape) logos work better if you have text in your logo and SVGs are the best for legibility . . . so to use an SVG you have to allow WordPress to upload these via a plugin available here: <a href="https://wordpress.org/plugins/svg-support/">https://wordpress.org/plugins/svg-support/</a></li>
+          <li>Now if you have no idea how to make an SVG logo, just use this one I have provided you here:
+              <a href="../images/storelogo.svg" download>SVG placeholder logo for those students who cannot make their own.</a></li>
+          <li>Then in the case of this sample SVG, it's height is taller than the navbar so we need to size it down with this code in Appearance > Customize > Additional CSS (temporary place to test styles until you move them): <code><pre>
+        a.navbar-brand img {
+        height:40px;
+        width:auto;
+        }</pre>                 
+              </code></li>
+               
+    </ol>    
+    <h3><mark>B: Fixing our Padding</mark> in the Navbar</h3>
+<img src="../images/week6HomeTasks-b.png" alt="task a">  
+    
+    
+      <ol class="instructions">
+          <li>When we added that filter last week to inject the search form into the navbar, we forgot one thing, that is to deal with the padding on the list item that contains the search form, so we need to add a class to the code in <strong><em>functions.php</em></strong> where we actually inject the markup, which looks like this:
+<code><pre>$items .= '&lt;li class="menu-item"&gt;'
+       </pre></code>
+          </li>
+          <li>This is easy to target by adding a unique class to that line like this:
+<code><pre>$items .= '&lt;li class="menu-item 417-search-form"&gt;'
+       </pre></code></li>
+          <li>Now we can add a rule to the Customizer targeting <code>.417-search-form</code> with the exact same padding-left used on the other list items in the main nav. Try to figure this out on your own without asking me for the answer.</li> 
+                
+    </ol>
+    <h3><mark>C: Using the Gutenberg Cover Block</mark> for Our Home Page</h3>
+<img src="../images/week6HomeTasks-c.png" alt="task a">    
+    
+      <ol class="instructions">
+          <li>If you are using the disable Gutenberg plugin, make sure Gutenberg is enabled for pages.</li>
+          <li>Add a Cover block to the home page above the shortcode block. Because our goal is to bleed the image full width, use a product image wide enough to
+          span the width of the browser window at large window size. Add centered white text teasing one <em>category</em> of your products.</li>
+          <li>Now if you preview the page you will see that the backend styles are not carried over to the front end.</li>
+          <li>Fix this by enqueuing yet another stylesheet with this block of code. See if you can figure out for yourself where this goes in <em>functions.php</em>. Remember this is an ADDITION to <em>functions.php</em>, not a replacement.  
+              <code><pre>  wp_enqueue_style( 'front-end-block', '/wp-includes/css/dist/block-library/style.css', array(), $the_theme->get( 'Version' ) );  </pre></code>    
+          
+         <li>That line of code loads a stylesheet for the front-end display of Gutenberg styles. (Note: Other themes will handle this another way but we need this for Understrap.)</li>
+          <li>Now we need to add a function to <em>functions.php</em> that will let us align that cover block full width, which essentially just provides a backend control to select "align full" in the Gutenberg editor. 
+          <code><pre>function mytheme_setup_theme() {
+add_theme_support( 'wp-block-styles' );
+add_theme_support( 'align-wide' );
+}
+add_action( 'after_setup_theme', 'mytheme_setup_theme' );
+       </pre></code>
+          </li>
+          <li>Finally we need a front-end style to bleed out of the container, which again we can put in the customizer:
+<code><pre>
+.alignfull {
+margin: 32px calc(50% - 50vw);
+max-width: 100vw;
+width: 100vw;
+}
+</pre></code>      
+              </li>
+<li>Now we have two more things to do by next week, see if you can on your own add styles to the customizer to make a link within the cover block be styled like a "ghost button" as I have - you can do this two ways: 1) via the Button block or 2) custom styles just on a link, which is what I did because I don't like the Gutenberg default styles for ghost buttons. Feel free to just inspect the code here on my migrated site: <a href="https://learnweb.link/wcdemo">https://learnweb.link/wcdemo</a>.           
+</ol>      
+
+ 
+   <h3><mark>D: Exploring Custom Plugins</mark></h3>
+<img src="../images/onsaleActionHook.png" alt="action hook" >   
+    <ol class="instructions">
+        <li>INTRO: The value of plugins we write ourselves is that they let us run functions that are <em>INDEPENDENT </em>of the theme we are using.</li>
+          <li>Examine the code for this plugin that I made and figure out which category you need to add to a product for it to automatically add the "On Sale" text as shown above.</li>
+          <li>Download the plugin's zip file here: <a href="../samples/digd-417-change-the-title.zip" download>Digd-417 Filter Sale Titles</a>
+          <li>Install and activate the plugin and see if you can make a product look like the screenshot through the action of the plugin.</li>
+</ol>          
+          
+ 
+ 
+    
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
