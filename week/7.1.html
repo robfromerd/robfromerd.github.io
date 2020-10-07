@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 7</h1>
+<header></header>
+<h2 class="text-center">Code Sample <mark>7.1</mark>: <em>Page Templates</em></h2>
+    <h3>A Super Basic Template</h3>
+<img src="../images/basic-complete.png" alt="Basic Template">    
+      <ol class="instructions">
+          <li>Copy the page-templates FOLDER from understrap to understrap-child-master.</li>
+          
+          <li>Copy the code below and save it as <code>blank-basic.php</code> within the page-templates folder within understrap-child-master. </li>
+        <li>Create a new page and over in the document tab on the right (Gutenberg) choose the "Simplified Page Template" template. Add a title and at least one paragraph.</li>
+          <li>View the page and you will see that the heading is unstyled and that the content is not aligned with the logo.</li>
+          <li>To fix this, put beginning Bootstrap 4 markup after the comment provided (reference: <a href="https://getbootstrap.com/docs/4.5/layout/grid/" target="_blank">https://getbootstrap.com/docs/4.5/layout/grid/</a>) - additionally, use a BS4 utility spacing class (reference: <a href="https://getbootstrap.com/docs/4.5/utilities/spacing/" target="_blank">https://getbootstrap.com/docs/4.5/utilities/spacing/</a>) to make a space above the breadcrumb.</li>
+          <li>Visit this page:  <a href="https://developer.wordpress.org/reference/functions/the_title/" target="_blank">https://developer.wordpress.org/reference/functions/the_title/</a> and then figure out how to use PHP arguments to wrap the title in h1 beginning and end tags</li>
+ 
+          <li>Use a Woocommerce shortcode and the <code>do_shortcode</code> function (reference: <a href="https://developer.wordpress.org/reference/functions/do_shortcode/" target="_blank">https://developer.wordpress.org/reference/functions/do_shortcode/</a>) to output 4 products like in the screenshot</li>
+          <li>Find the comment where you put the ENDING Bootstrap 4 markup. </li>
+          <li>Screenshot the page and DM it to me in Slack when done</li>
+              
+    </ol>    
+    <script src="https://gist.github.com/robfromerd/bf79af0696cd950a60047d6e07691ea6.js"></script>
+    <h3>A More Complex Custom Template Using Two WordPress Loops, One standard and One Using <code>WP_Query</code> </h3>
+
+    
+    
+      <ol class="instructions">
+          <li>Copy the below code into a file called <code>archive-products-v2.php</code> and put it in the page-templates FOLDER you copied previously. 
+          </li>
+          <li>Create a new page and over in the document tab on the right (Gutenberg) choose the "Products Archive - all in one file" template.</li> 
+        <li> Save it and see if you have custom archive of all of your products that lists all of your products but with a different approach than the standard Woocommerce "Shop" page that the Woocommerce plugin makes for you. </li>
+                
+    </ol>
+    
+ <script src="https://gist.github.com/robfromerd/12f35fa12a62d0662c5d40aca895a169.js"></script>
+ 
+    
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
