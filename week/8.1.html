@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 8</h1>
+<header></header>
+<h2 class="text-center">Code Sample <mark>8.1</mark>: <em>Pushing Our Sites to WP Engine</em></h2>
+<p class="text-center">These two simple tasks are all you have to do to complete the mid-term quiz, which you should complete by the <strong><mark>morning of Saturday October 17th,</mark></strong> when I will be submitting the mid-term grades.</p>
+    
+    
+    
+    <h3>Task 1: Pushing to WP Engine</h3>
+  
+      <ol class="instructions">
+          <li>From the WP Engine website for your account, go to the drop down next to your account name in the far upper right and choose <strong><mark>"My Profile."</mark></strong></li>
+          <li>Then at the next screen, you will see a list of small links on the near left where you will choose <strong><mark>"API Access". </mark></strong></li>
+          <li>Click the large purple <strong><mark>"Generate Credentials"</mark></strong> button in the upper right.</li>
+          <li>Copy these credentials to a place where you can retrieve them later.</li>
+          <li>Go back to your Local by Flywheel APPLICATION that resides on your computer now that you are armed with these API credentials.</li>
+          <li>In the lower right corner of the Local interface, where you will see <strong><mark>Connect to: no host selected, "</mark></strong> choose WP Engine and then enter the previously copied API credentials. 
+         
+          <li>Then the interface will ask you <strong><mark>"Where should we push . . . ?"</mark></strong> &ndash; choose your site name up on WP Engine.</li>
+          <li>Then at the next screen, select the <strong><mark>"PRODUCTION"</mark></strong> environment, AND MAKE SURE you check the box for <strong><mark>"include database."</mark></strong></li>
+          <li>Wait a few minutes for the upload to complete (it should tell you when it has moved from files to the database) and then check that your Remote site now looks like your Local site.</li>
+          <li>Email me the Link to your Remote site</li>.           
+    </ol>    
+    <h3>REVISED: Modify a More Complex Custom Template Using Two WordPress Loops, One standard and One Using <code>WP_Query</code> </h3>
+
+    
+    
+      <ol class="instructions">
+          <li>Copy the below code into a file called <code>archive-products-v3.php</code> and put it in the page-templates FOLDER you copied previously. 
+          </li>
+          <li>Use the page you created last week or create a new page (it does not matter) and over in the document tab on the right (Gutenberg) choose the <strong><mark>"Products Archive - IMPROVED"</mark></strong> template.</li> 
+          <li>Update or publish it and the row of products will look something like this: <a href="https://jeffersonweb.wpengine.com/shop-custom/" target="_blank">https://jeffersonweb.wpengine.com/shop-custom/</a></li>
+        <li>Note a few things going on here: We use equal-height cards and we use a card footer so the "Buy Now" buttons all line up &ndash; this kind of alignment is <strong><mark>visually calming and reassuring</mark></strong> to the user.</li>
+          <li> YOUR ONLY task is to <strong><mark>change the markup on those buttons</mark></strong> so they look like this: <img src="../images/button.png" alt="button" class="img-1x"></li>
+          
+          <li>You can get the <strong><mark>TWO CSS classes</mark></strong> you need to replace <code>btn-primary</code> at this documentation page: <a href="https://getbootstrap.com/docs/4.5/components/buttons/#outline-buttons" target="_blank">https://getbootstrap.com/docs/4.5/components/buttons/#outline-buttons</a></li>
+          
+          <li>You are looking for TWO classes to replace the one called <code>btn-primary</code> (while keeping the class called <code>stretched-link</code> because clients like what that one does). </li>
+          
+        <li>In other words you will have a class attribute that looks like this <strong><mark><code>class="btn some-class-you-looked-up another-class-you-looked-up stretched-link"</code></mark></strong> in a place you <strong><mark>YOURSELF find</mark></strong> in the code in <strong><mark>archive-products-v3.php</mark></strong> where it makes sense that those buttons are being marked up.</li>
+          <li>Make this change locally and then push the change up to your REMOTE site with the <strong><mark>"Push to WP Engine"</mark></strong> button in the lower right of the Local application interface and DM me the link to your Remote site when done. </li>
+          
+                
+    </ol>
+    
+<script src="https://gist.github.com/robfromerd/7318b5b1d64b050d0695d295979f7b26.js"></script>
+ 
+    
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
