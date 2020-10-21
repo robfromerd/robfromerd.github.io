@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 9</h1>
+<header></header>
+<h2 class="text-center">Code Sample <mark>9.1</mark>: <em>Different Back-end Approaches</em></h2>
+<p class="text-center">These samples show you how you can use both ACF the WordPress Widget API to code important back-end fields. Also included are two approaches for contact forms.</p>
+     <h3>TASK 1: Adding a Widgetized Area to a Template</h3>
+  
+      <ol class="instructions">
+          <li>Copy the following function into the end of your <strong><mark>functions.php</mark></strong> file in your child theme folder.</li>
+          <li><pre><code>add_action( 'widgets_init', 'hero_simplified_page' );
+function hero_simplified_page() {
+  $args = array(
+    'name'          => 'Hero Area for Simplified Page',
+    'id'            => 'hero-simplified',
+    'description'   => 'This allows custom code - must use Simplified Page -- Widgetized template',
+    'class'         => '',
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title'  => '',
+    'after_title'   => '' 
+  );
+  register_sidebar( $args );
+}</code></pre></li>
+          
+          <li>Now go to Appearance > Widgets and over on the right on the side of the screen you will see your newly registered widget area.</li>
+          <li>We need to call that widget area in our template, so I made a version of the simplified template for you below that includes this widget.</li>
+          <li>Add that template to your <strong><mark>page-templates</mark></strong> folder and select it for a new page by choosing the page template name shown within the code below.</li>
+          <li>Now you will see that the you have to <strong><mark>GO BACK to Appearance  Widgets</mark></strong> to populate this widget, which for this initial exercise I want you to populate via the Custom HTML widget with this snippet from way back in Exercise 2.2:</li>
+ <li><a href="" target="_blank">https://raw.githubusercontent.com/robfromerd/digd417/master/week-2.2-exercise-solution.html</a> &ndash; <strong><mark>your task</mark></strong> is to figure out how to paste in just the <code>div</code> containing the Nicholas slidehow &ndash; hint it's the one with id containing the word carousel. </li>
+<li>When done, use the PUSH to WP Engine button to push the template up to your REMOTE site and then (if necessary), redo the content changes on REMOTE if not pushing the DB, and then send me the URL to the page on your REMOTE site.   <li>It should look like this:       
+          <img src="../images/widget.png" alt="widget"  ></li>
+ <li>FINALLY, for NEXT WEEK, use REAL CONTENT in the widget area using locally pathed images to your child theme directory with the code like this <code>src="<?php echo get_stylesheet_directory_uri(); ?>/images/yourfilename.yourextension"</code> <strong><mark>instead of the images of Nicholas Cage</mark></strong>. You do not have to use a slideshow but you do have to use some custom code that paths to image(s) in a folder in your child theme directory that  you include in this way.</li>                           
+    </ol>     
+  <script src="https://gist.github.com/robfromerd/7cbe34a65440a92b5cfe7a848a6764ce.js"></script>  
+    
+    <h3>TASK 2: Using the ACF Options Page Functionality to Allow Google Fonts Choices</h3>
+  <p>If you have the PRO version of the ACF plugin, you can make a Site Options page to store global custom values.</p>
+      <ol class="instructions">
+          <li>Install the PRO version of the plugin by going to this <strong><mark><a href="https://github.com/wp-premium/advanced-custom-fields-pro" target="_blank">Github page.</a></mark></strong></li>
+          <li>We need to install this plugin by uploading a zip by going to the Dashboard > Plugins > Add New and then looking for a rectangular "Upload Plugin" button at the top of the screen. </li>
+          <li>This way of adding a plugin expects a zip file.</li>
+          <li>Activate the ACF Pro plugin.</li>
+          <li>Now <a href="../samples/digd-417-google-fonts.zip" target="_blank">download this ZIP file of a custom plugin that I made</a> that adds a custom Site Options field for you that allows you to load a Google Fonts stylesheet &ndash; add it and activate in the same way as above.</li>
+          <li>Now you should see a Site Options choice in the Dashboard that will accept the URL part of a Google font embed (lecture will cover how to get just this part).</li>. 
+          <li>Add a Google font to this field and then hop over to Appearance > Customizer and target all (*) elements or just some and then let me know a page where I can see this in action.</li> 
+              
+                     
+    </ol>  
+    
+    
+    <h3>TASK 3: Including a Contact Form Without Using a Plugin and With Using a Plugin</h3>
+    <p>There are many plugins to add front-end forms to a WordPress site and you can also custom code your own.</p>
+    
+    
+      <ol class="instructions">
+          
+              <li>For this assignment, use either the<strong><mark> custom page template that I provide below</mark></strong>  or another plugin-based approach such as <strong><mark>Contact Form 7 or Gravity Forms</mark></strong> (your choice) to add a contact form to your website.</li>
+          <li>If you use the template below, REMEMBER you must populate the email address in the <strong><mark><code>$to</code></mark></strong> variable on line 57 where the code now says "some-email@someplace.whatever".</li>
+          <li>Send yourself a test message from your form and then forward it to me to show me that you completed the assignment.</li>
+<li>If you use a plugin, read the plugin's documentation to make sure you understand how to set up the plugin to be able to send emails from your WordPress installation.</li>
+          
+          
+                
+    </ol>
+   <script src="https://gist.github.com/robfromerd/6d406a5624c6222ff165f2a6e7007635.js"></script> 
+
+ 
+    
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
