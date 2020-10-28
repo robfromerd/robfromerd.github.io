@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 10</h1>
+<header></header>
+<h2 class="text-center">Code Sample <mark>10.1</mark>: <em>Practice with Strings and Variables and Also a User Role Plugin</em></h2>
+<p class="text-center">This week provides a template to practice echoing PHP variables and strings.</p>
+    
+  
+    <p class="text-center">Also included is an approach for an ACF field for entering HTML code on a page (as an alternative to last week's widget approach). </p>
+    <p class="text-center">Also I show how to make a simple plugin to add certain customizer capabilities to an Editor role.</p>  
+     <h3>TASK 1: Fix for Code Mirror Problem in Understrap</h3>
+  
+      <ol class="instructions">
+          <li>Copy the following function into the end of your <strong><mark>functions.php</mark></strong> file in your child theme folder. What this does:  There are many action hooks in WordPress that act like stops along a gameboard where other actions can also happen (think of Monolpoly as an analogy). (Here is a <a href="https://www.wpbeginner.com/wp-tutorials/how-wordpress-actually-works-behind-the-scenes-infographic/?display=wide" target="_blank">nice illustration of how these actions fire off</a> in their specific order and here is a <a href="https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_an_Admin_Page_Request" target="_blank">codex page that lists admin actions</a>.) <p>In the below code, we hook into an action hook called <code>admin_head</code> that can be used to add to the &lt;<code>head</code>&gt; of backend WordPress pages, of which one is the previously messed-up widget editing page.</p> </li>
+          <li><pre><code>  
+  add_action('admin_head', 'digd417_admin_fix');
+  
+  function digd417_admin_fix() {
+  echo '&lt;style&gt;
+    .CodeMirror pre.CodeMirror-line {
+    background: inherit;
+    padding: inherit;
+    border: inherit;
+    line-height: inherit;
+    margin: inherit;
+    margin-left: 3em !important;
+    font-size: 1em;
+    white-space: inherit;
+    word-wrap: inherit;
+    overflow-x: inherit;
+    overflow-y: inherit;
+    }
+  &lt;/style&gt;';
+}</code></pre>
+          </li>
+<li>Now go to Appearance > Widgets and edit an HTML widget  (or really any other feature that uses Codemirror) to see that now you can edit the text in the editor area) and this is because of that new <code>margin-left</code> value. </li>
+                                
+    </ol>     
+
+    
+    <h3>TASK 2: Using the ACF Text Field as an Alterative to Using a Widget</h3>
+  <p>As noted before, using a widget for a specific page has usability problems as the user bounces back and forth from the page to the Widgets screen. ACF lets us add a text field to a page that we can into which we can then enter our custom HTML code.</p>
+      <ol class="instructions">
+          <li>Use the custom page template below for all of this week's exercises, so copy that into <code>understrap-child-master > page-templates</code> and then create a new page and select the "Simplified Page -- Practice ACF and PHP" page template in the template dropdown.</li>
+          <li><mark>On line 43</mark> you can see we use the ACF function <code>the_field()</code> to render a field with the machine name of <mark><code>code_field</code></mark>.  But, since we have not programmatically created this field, <mark>YOU</mark> have to create it through the ACF interface. 
+          <li>To do so, go to Custom Fields > Add New and then use these settings.</li> 
+          <img src="../images/code-field.png" alt="code field">    
+          <li>Now edit a page using this template and add the following code to your code field:        
+          <pre><code>&lt;div class="container">
+    &lt;div class="row mt-3" &gt;
+        &lt;div class="col-sm-6"&gt;first col
+        &lt;/div&gt;
+        &lt;div class="col-sm-6">second col
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;section class="section-background"&gt;
+&lt;div class="container h-100"&gt;
+    &lt;div class="row align-items-center h-100"&gt;
+        &lt;div class="col-sm-6 mx-auto"&gt;
+                &lt;div class="jumbotron"&gt;
+                I'm vertically centered
+                &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </li>
+          <li>For next week, add a real background image pathed from your media library (use the root like this <code>/wp-content/uploads/2020/correctmonth/correctfilename.correctextension</code> to path to a background image in your media library.</li> 
+          <li>Just for example, here is a random image from my media library used as a background image on the section:<pre><code>.section-background {
+	background-image:url("/wp-content/uploads/2020/09/rachit-tank-2cFZ_FB08UM-unsplash.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	height:300px;
+}</code></pre></li>
+        <li>Choose a background image that relates to your store and is the correct dimensions to work for you. ALSO INCLUDE LOGICAL COPYWRITING and any additional markup that make sense for a hero element such as this.</li>  
+              
+    </ol>  
+    <h3><mark>Here Is the Revised Template We Will Use Tonight</mark></h3>    
+<script src="https://gist.github.com/robfromerd/e5c9ec1454872da8ca2f79523a686c42.js"></script>
+    
+    <h3>TASK 3: Brush Up On Our Echoing Skills</h3>
+    <p>We can custom code HTML and CSS code through widgets and ACF fields but <mark>to add PHP</mark> we have to add it right in the template.</p>    
+      <ol class="instructions">
+          
+          <li>For this assignment, search through the source code of the <code>blank-basic-with-widget-and-acf.php</code> template for <mark>TASK</mark> and make the corrections noted at each TASK comment.</li>
+        <li>When done, push your code up to your REMOTE site and send me the link to a page using the template.</li>        
+               
+    </ol>
+    
+    <h3>TASK 4: Install My Simple Plugin that Modifies the Editor User Role</h3>
+    <p>The editor role in WordPress normally cannot see the Appearance > theme choices in the dashboard (see <a href="https://wordpress.org/support/article/roles-and-capabilities/">this codex page</a> and  <a href="https://exygy.com/blog/wordpress-roles-and-capabilities-at-a-glance/">this article</a>), but in this scenario, we want the editor to just be able to see the customizer.</p>
+   
+           <ol class="instructions">
+               <li>Download this <a href="../samples/digd-417-custom-permissions.zip">custom plugin zip</a> and install and activate it either locally or remotely via the "Upload Plugin" button.</li>
+            <li>Create an Editor user (I also add the "User Switching" plugin from the public WordPress repository to easy testing but that is not required ).</li>
+               <li>DM me what changes occurred in the Dashboard after activating this plugin.</li>
+             </ol>  
+        
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
