@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 11</h1>
+<header></header>
+<h2 class="text-center">Code Sample <mark>11.1</mark>: <em>Registering Navigation Menus and Using JavaScript to Open a Coupon Code Modal</em></h2> 
+    <p class="text-center">This week we will revisit the <em>associative array</em> via the WordPress menu system and also we will look into a manual way to load some custom JavaScript.</p>
+    
+  
+
+     <h3>TASK 1: Register a New Navigation Menu for the Footer Links</h3>
+<p>We could always hard-code menu links with root relative paths so that they would work even on nested pages but this has one huge disadvantage  &ndash; the client would have to come back to us each time they wanted to change this set of links in any way, so we will do it the right way here.</p>  
+      <ol class="instructions">
+  
+          <li>Copy this function into the end of your <code>functions.php</code> (the one in understrap-child-master)<pre><code>// Here we register another menu
+add_action( 'init', 'digd417_register_menu' );
+//the first argument is the menu slug and the second is the menu description for the WP dashboard 
+function digd417_register_menu() {
+    register_nav_menu( 'footer', __( 'Footer Menu' ) );
+}</code></pre>
+          </li>
+<li>Now we need to call this menu in our theme &ndash; the site footer gets printed out by our theme's <code><mark>footer.php</mark></code>, which you should COPY from the parent theme into the root of the <code>understrap-child-master</code> folder. </li>
+<li>To actually see the menu, we need to populate the WordPress database with link entries for our additional menu. This can be tricky: Here are the steps:
+<ol>
+    <li>To create a new menu in WordPress, go to Appearance &gt; Menus and then there is a hard-to-find link (look to the right of the "Select" button) labeled <mark>"create a new menu." </mark></li>
+    <li>Then we need to make sure we assign the menu to the correct location of "Footer Menu" with either the checkbox on the create menu main screen or on the "manage locations" tab: <img src="../images/menulocations.png"alt="menu locations"></li> 
+    </ol>    
+          </li>             
+<li>Once we have our footer.php and our database entries in place, we can then use the following WordPress helper function to finally display our new menu (note you have to use menu name you entered in the step above in the function:<p><script src="https://gist.github.com/robfromerd/88b34e4d20b359a5f3d41259267dfd89.js"></script></p></li>
+<li>A logical place to put it is <em>within</em> the <code>div</code> with a class of <code>site-info</code> inside the <code>footer.php</code> file that you just copied into the child theme folder. This is because then we can display the copyright notice and the footer links all on one line.</li>
+ 
+<li>Now notice that I am outputting a pipe character like this | after each link at <a href="https://jeffersonweb.wpengine.com" target="_blank">https://jeffersonweb.wpengine.com</a>. Use the inspector to see the exact markup I am injecting, which is a  pipe character within a &lt;span&gt;. Go to the WordPress Developer reference and look for the key =&gt; value pair to use to insert text after the link markup &ndash; Add this to the <mark>associative array</mark> in our <code>wp_nav_menu</code> function on a new line after the line that reads <code>'depth' =&gt; 1,</code>. 
+    
+<li>Inspect my page at <a href="https://jeffersonweb.wpengine.com" target="_blank">https://jeffersonweb.wpengine.com</a> to see the custom CSS I am using keep the copyright notice and links all on one line and tohide the pipe character after the LAST footer link.() To make this easy for you I put an inline &lt;style&gt; block right after the copyright notice in the code.) Copy and paste the STOLEN CSS rules into your customizer and see if it works. </li>
+<li>DM me the result after you push your change to your REMOTE site.</li>          
+          
+    </ol>     
+
+    
+    <h3>TASK 2: Using Javascript to Open an Alert to Display a Coupon Code</h3>
+  <p>If you scroll down on this page you will see that the coupon code alert animates in &ndash; this kind of motion  can be an effective way to capture the user's attention. To do this, we need two things:<strong> styles and JavaScript</strong> &ndash; the trick here is we add the stylesheet in functions.php and for this exercse we will put the custom JavaScript directly in a custom footer.</p>
+      <ol class="instructions">
+          <li>We are going to use a canned library of CSS animations called animate.css &ndash; we can use this library by enqeueing the hosted stylesheet with this function added to <code>functions.php</code> where we enqeueud the other stylesheets<br><code>wp_enqueue_style( 'animate.css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', array(), $the_theme->get( 'Version' ) ); </code></li>
+          <li>TIP: To figure out where to put this snippet just remember that it must be within the function in functions.php that is called <code>theme_enqueue_styles</code>.</li>
+          <li>We also need to use the following jQuery code and we need to add it in the footer of our website &ndash; EXCEPT since we do not want to use this script on all pages we can easily limit where it used by copying our child theme's footer.php to a file name called footer-custom.php<script src="https://gist.github.com/robfromerd/58487b0ed57c976481f794862df4e0ff.js"></script></li>
+          <li>Then we can just paste this script into footer-custom.php <mark>just before the &lt;/body&gt; tag</mark>.</li>
+          <li>So with both of these elements in place we can then create a new page with the template below and select it via its name of "Simplified Page -- Practice Custom Footer." At this point the alert in the template should animate into view when you scroll down to its position in the code. </li>
+          <li>If you examine the template code, you can see that we hard-code into this template a WooCommerce shortcode for featured products &ndash; to set a product as featured you can just click on Products &gt; All products and then just click the star icon on four of your products to render the four products.</li>
+          <li>When done, just DM the URL of your use of this template.</li>
+          
+    </ol>
+    <h3><mark>Here Is the Revised Template We Will Use For the Animated Alert</mark></h3>    
+<script src="https://gist.github.com/robfromerd/be99fd696994e61f2e033077ef583c04.js"></script>
+    
+
+    
+ 
+        
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
