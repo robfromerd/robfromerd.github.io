@@ -56,7 +56,9 @@ function digd417_register_menu() {
 <li>Once we have our footer.php and our database entries in place, we can then use the following WordPress helper function to finally display our new menu (note you have to use menu name you entered in the step above in the function:<p><script src="https://gist.github.com/robfromerd/88b34e4d20b359a5f3d41259267dfd89.js"></script></p></li>
 <li>A logical place to put it is <em>within</em> the <code>div</code> with a class of <code>site-info</code> inside the <code>footer.php</code> file that you just copied into the child theme folder. This is because then we can display the copyright notice and the footer links all on one line.</li>
  
-<li>Now notice that I am outputting a pipe character like this | after each link at <a href="https://jeffersonweb.wpengine.com" target="_blank">https://jeffersonweb.wpengine.com</a>. Use the inspector to see the exact markup I am injecting, which is a  pipe character within a &lt;span&gt;. Go to the WordPress Developer reference and look for the key =&gt; value pair to use to insert text after the link markup &ndash; Add this to the <mark>associative array</mark> in our <code>wp_nav_menu</code> function on a new line after the line that reads <code>'depth' =&gt; 1,</code>. 
+<li>Now notice that I am outputting a pipe character like this | after each link at <a href="https://jeffersonweb.wpengine.com" target="_blank">https://jeffersonweb.wpengine.com</a>. Use the inspector to see the exact markup I am injecting, which is a  pipe character within a &lt;span&gt;. 
+    
+    <br><br>Go to the <a href="https://developer.wordpress.org/reference/functions/wp_nav_menu/#div-comment-2880" target="_blank">WordPress Developer reference</a> and look for the key =&gt; value pair to use to insert text after the link markup &ndash; Add this to the <mark>associative array</mark> in our <code>wp_nav_menu</code> function on a new line after the line that reads <code>'depth' =&gt; 1,</code>. </li>
     
 <li>Inspect my page at <a href="https://jeffersonweb.wpengine.com" target="_blank">https://jeffersonweb.wpengine.com</a> to see the custom CSS I am using keep the copyright notice and links all on one line and tohide the pipe character after the LAST footer link.() To make this easy for you I put an inline &lt;style&gt; block right after the copyright notice in the code.) Copy and paste the STOLEN CSS rules into your customizer and see if it works. </li>
 <li>DM me the result after you push your change to your REMOTE site.</li>          
@@ -77,7 +79,7 @@ function digd417_register_menu() {
           <li>So with both of these elements in place we can then create a new page with the template below and select it via its name of "Simplified Page -- Practice Custom Footer." At this point the alert in the template should animate into view when you scroll down to its position in the code. </li>
           <li>If you examine the template code, you can see that we hard-code into this template a shortcode after the comment that reads <mark>"START use the do_shortcode WordPress function to print out 4 featured products"</mark>  &ndash; to set a product as featured you can just click on <mark>Products &gt; All products</mark> and then just click the star icon on four of your products to render the four products.</li>
           <li>Then, once you have the animation working (if testing on phone, make sure "reduce motion" is not on), change the animation to one of the Attention Seeker animations at <a href=
-"https://animate.style" target="_blank">https://animate.style</a><li>.
+"https://animate.style" target="_blank">https://animate.style</a></li>.
           <li>When done, just DM the URL of your use of this template.</li>
           
     </ol>
