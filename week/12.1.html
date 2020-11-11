@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li, ul.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 12</h1>
+<header></header>
+    <h2 class="text-center">Code Sample <mark>11.1</mark> Using a Plugin for a Modified Navwalker and Also a Little Bit About Srcset</h2> 
+    <p class="text-center">This week we will look at the WordPress "navwalker" class and also how WordPress resizes  and codes images into page markup. </p>
+    
+  
+
+     <h3>Example 1: How to Use a Plugin for a Modified Navwalker and to Enqueue a Plugin Javascript File and Stylesheet. </h3>
+    
+    
+<p>Bootstrap has always invoked dropdown menus via click instead of hover and they say,  "They’re toggled by clicking, not by hovering; this is an intentional design decision" in the documentation and "Opening a dropdown is an explicit action and should only happen on click" in an earlier blog post. The problem is the rest of the world does not take such an absolutist view of this issue and clients will simply demand that you implement dropdowns on hover.</p>  
+    
+<p>This introduces two issues with the way Bootstrap codes these dropdowns. A hash link (#) invokes the dropdown and thus any top-level nav link will not by default go anywhere &ndash; if you have a mix of normal top-level links and dropdowns, a user clicking across the nav as they do will get a varying and confusing user experience. For this reason, I provide this plugin to do three things: </p>
+    <ol class="instructions">
+        <li>Allow top-level links with dropdowns to actually go to a URL as opposed to a hash,</li>
+        <li>change the dropdown action from click to hover, and</li>
+        <li>switch back to click for the dropdowns on mobile viewports because that is the expected and better behavior there.</li>
+    </ol>
+    
+<p>To accomplish this task, we need three things: JavaScript, a stylesheet, and a custom version of a WordPress core class called the Nav Walker.</p> 
+    
+    <p><a href="../samples/digd-417-dropdown-menu.zip">Here is the ZIP file of the plugin that you can OPTIONALLY install</a> and use (<mark>not required,</mark> especially if your project's main navigaton will not have dropdowns)</p>    
+    
+      <ul class="instructions">
+  <li>After the standard plugin header information, in my plugin I use the <code>wp_enqueue_styles</code> function to path to a CSS and JS folder inside the plugin folder using the WordPress <code>plugins_url</code>function.   <script src="https://gist.github.com/robfromerd/ea491831a226fad01ec0708387bed2da.js"></script>
+</li>      
+          <li>Then in the plugin's main PHP file, I include the complete script of <a href="https://github.com/wp-bootstrap/wp-bootstrap-navwalker/blob/master/class-wp-bootstrap-navwalker.php" target="_blank">this different version of the WordPress nav walker script</a> (than the one in included in the "inc" folder of the parent theme). Note that the previous link is formatted as a plugin also, so I can easily see how I just could enqueue the CSS and JSS in a plugin. Also, if you click on the "Issues" tab in the previous link  you can see <a href="https://github.com/wp-bootstrap/wp-bootstrap-navwalker/issues/485" target="_blank">an easy fix for the problem of parent links not leading to their actual pages</a>. Note that I prefix my script with a unique string to avoid conflicts.
+          </li>
+<li>The plugin's JavaScript includes two jQuery scripts, one that adds and removes the "show" class on the unordered lists element with a class <code>.dropdown-menu</code> at a desktop view and another that inserts a SEPARATE control to toggle the submenus on mobile becuase remember we need the parent link to still go to its page on mobile because otherwise mobile users will have no way of getting to it.  I use the Fontawesome icon font for plus and minus for the control but one could use any markup one wanted.</li>
+<li>The plugin's stylesheet styles the submenu to use a pseudo element triangle at the top of the submenu and also applies various styles to the mobile menu.<li> 
+<li>
+    Finally I need to make a conditional check on my <code>wp_nav_menu</code> function within <code>header.php</code> to avoid plugin activation/deactivation issues:
+<script src="https://gist.github.com/robfromerd/ad8e25ad59205436326721bb145340b1.js"></script> 
+          </li>    
+    </ul>
+
+
+    
+    <h3>TASK 1: Exploring Srcset for Next Week</h3>
+    <p>For quite awhile now, WordPress has automatically added a srcset attribute to any image in <code>the_content</code>, which you can think of as the main content editor of a page or post. (This would not include any custom fields such as the ones you can add through ACF.)</p>
+      <ol class="instructions">
+          <li>Create a page called About Us.</li>
+          <li>Download <a href="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2301&q=80" download>this stock image</a> which is 2301x1536 pixels, too large for most use cases but use it anyway.</li>
+          <li>In the About Us page, insert this image into the main text area of the page (not a custom field).</li>
+          <li>With the image selected go the block properties for the image block and notice that you can select Full size in the dropdown for image size. Do so and update the page if you need to.</li>
+          <li>Now inspect the image within the page and notice the <code><mark>srcset</mark></code> included within the <code>img</code>element.</li>
+          <li>I made <a href="https://codepen.io/robfromerd/pen/QWEzwNO" target="_blank"><mark>a simplified Codepen of the way WordPress does this for your use in pondering</mark></a> this code approach.</li>
+          <li><mark>Write me a short DM before next class</mark> explaining the viewport widths and sizes of images returned and what the different parts of the WordPress srcset are doing &ndash; I will do the same and we can compare notes! <mark>Extra credit for thoroughness and specificity.</mark></li>
+         
+        
+    </ol>
+    
+  
+
+    
+ 
+        
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
