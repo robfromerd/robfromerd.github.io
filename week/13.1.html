@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li, ul.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 13</h1>
+<header></header>
+    <h2 class="text-center">Code Sample <mark>13.1</mark> Last Week's Solutions and Some WooCommerce Setup Considerations</h2> 
+    <p class="text-center">This week we'll go over last week's homework and will also discuss some important WooCommerce settings. </p>
+    
+  
+
+     <h3>Example 1: Solution for Sticky Footer Exercise</h3>
+<p>The key understanding here is that <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_blank">display:flex is not inherited</a>, and so various solutions that tell you to only target certain styles to the &lt;body&gt; element miss the point that we need the immediate parent of the footer to have certain styles.</p>  
+    
+<p class="codepen" data-height="695" data-theme-id="default" data-default-tab="result" data-user="robfromerd" data-slug-hash="WNxWBNp" style="height: 695px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="To Show Sticky Footer in Understrap">
+  <span>See the Pen <a href="https://codepen.io/robfromerd/pen/WNxWBNp">
+  To Show Sticky Footer in Understrap</a> by robfromerd (<a href="https://codepen.io/robfromerd">@robfromerd</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    
+<h3>Example 2: Solution for Srcset</h3>
+    <p>For quite awhile now, WordPress has automatically added a <code><mark>srcset</mark></code> attribute to any image in <code>the_content</code>, which you can think of as the main content editor of a page or post. (This would not include any custom fields such as the ones you can add through ACF.)</p>
+    
+<p>The best way to think about this is that the browser makes a determination about which image to use from a set of source images defined in a srscet attribute within the img element. (It does this <mark>page load</mark> and not on resize.) Each separate size of image in the srcset attribute is followed by the width of the image followed by a lowercase "w" &ndash; this is to tell the browser how wide the image is because otherwise the browser would have to load it first to determine its width. The sizes part of the srcset is like a media query and the WordPress implentation basically says "fill the width of the available viewport" &ndash; you could even leave out the "sizes" part because the default is to fill the width.  (This is super hard to test because once the browser has the high res one it does not need the low res one, so you need to use an "Incognito" window in Chrome to test it as per the instructions below.)</p>
+<p class="codepen" data-height="600" data-theme-id="default" data-default-tab="result" data-user="robfromerd" data-slug-hash="gOMyNaX" style="height: 600px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="WordPress Srcset Behavior">
+  <span>See the Pen <a href="https://codepen.io/robfromerd/pen/gOMyNaX">
+  WordPress Srcset Behavior</a> by robfromerd (<a href="https://codepen.io/robfromerd">@robfromerd</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script> 
+<h3>Task 1: Secure Your Reviews</h3>
+<ol class="instructions">
+    <li>If you leave your review moderation process wide open, this could happen to you:
+    <img src="../images/ratings.png" alt="ratings">
+    </li>    
+<li>The WooCommerce ratings functionality is tied to the global WordPress comments moderation settings, so go to Settings > Discussion.</li>
+<li>Once there look for "Before a comment appears: ___	Before a comment appears Comment must be manually approved" &ndash; check the box to make sure an admin must approve a comment before it appears.</li>
+<li>Then look farther down the page for a field called "Disallowed comment keys," where you can enter a list of disallowed text strings (one per line).</li>
+    <li>Enter "viagra, sex, and supplements" each on their own line and save these settings.</li>
+    <li>Then open a new browser session <mark>where you are not logged in</mark> and try entering both a legitimate review and a spurious one using one of the disallowed keywords.</li>
+    
+<li>Then go back to a logged-in browser and look at the Dashboard &gt; Comments, and then check all the different categories of comments displayed on the screen there, and thn DM me the result.</li>
+    
+    
+    </ol>    
+<h3>Task 2: Add Social Share Buttons to Products Via Jetpack</h3>
+<ol class="instructions">
+    <li>If you didn't already install Jetpack when you installed WooCommerce, add the Jetpack plugin (free but requires a WordPress.com account, which is different from a WordPress.org account). </li>
+    <li>NOTE: The page where you sign up on WordPress.com is a bit of a "dark design pattern" &ndash; SCROLL DOWN until you can click a "Start Free" button!!!!</li>
+    <li>Once activated, go to Jetpack &gt; Settings &gt; Sharing. On this screen you can indicate which social sites' buttons you want to include and which posts to show this on. It makes sense to limit this to the "Products" post type.</li>  
+<li>Note that Instagram is not there &ndash; this is because Instagram does not allow this. </li>
+    <li>When done, DM me a link to a product containing social share buttons.</li>    
+    </ol>      
+    
+        
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
