@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for DIGD417</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+      <style>
+            
+    
+          ol.instructions li, ul.instructions li {
+              margin-bottom: .5rem;
+            line-height: 1.4;
+            
+          } 
+          .gist .blob-code-inner {
+    white-space: pre-wrap !important;
+}
+      </style>  
+</head>
+
+<body>
+
+<h1>Code Samples for Week 14</h1>
+<header></header>
+    <h2 class="text-center">Code Sample <mark>14.1</mark> More WooCommerce Customization and Setup, Also Image Compression</h2> 
+    <p clas="text-center">This week I provide a few code WooCommerce ... and more about how WordPress handles images. </p>
+    
+  
+
+     <h3>Example 1: Redirect to Custom Shop Page From an Empty Cart </h3>
+<p>As promised, you will notice that an empty shopping cart by default returns to the default <mark>"/shop/"</mark> page. If you wanted to use the alternative custom products page you could just use a WooCommerce filter hook as explained here in the <a href="https://docs.woocommerce.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/#section-5" target ="_blank">WooCommerce docs.</a></p>
+    
+    <p>Here is the code that I am using in my <code>functions.php</code> where I provide a root relative link to my custom shop page:</p>
+    
+  <pre><code style="white-space: pre-wrap !important;" >/**
+ * Changes the redirect URL for the Return To Shop button in the cart.
+ */
+function wc_empty_cart_redirect_url() {
+  return '/shop-custom/';
+}
+add_filter( 'woocommerce_return_to_shop_redirect', 'wc_empty_cart_redirect_url', 10 );
+</code></pre>
+ 
+<h3>Example 2: Optionally, Change Image Compression and Regenerate Thumbnails </h3>    
+<p>As I mentioned in last class, WordPress applies some JPEG compression to JPEGs uploaded to the media library &ndash; from my research the current default value is 82%, which is fine for quality and may even be on the high side.</p>
+    
+<p>If you wanted to change this you could use the following filter in your <code>functions.php</code>, but you would also have to use the <a href="" target="_blank">regenerate thumbnails plugin</a> to recreate the new images with the new JPEG setting in the media library.</p>    
+
+  <pre><code style="white-space: pre-wrap !important;" >//Change the jpeg compression, but remember you have use the regenerate thumbnails plugin
+
+function digd417_new_quality() {
+    return 75; 
+}
+ 
+add_filter( 'jpeg_quality', 'digd417_new_quality');</code></pre>     
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
