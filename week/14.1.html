@@ -52,7 +52,9 @@ add_filter( 'woocommerce_return_to_shop_redirect', 'wc_empty_cart_redirect_url',
 <h3>Example 2: Optionally, Change Image Compression and Regenerate Thumbnails </h3>    
 <p>As I mentioned in last class, WordPress applies some JPEG compression to JPEGs uploaded to the media library &ndash; from my research the current default value is 82%, which is fine for quality and may even be on the high side.</p>
     
-<p>If you wanted to change this you could use the following filter in your <code>functions.php</code>, but you would also have to use the <a href="" target="_blank">regenerate thumbnails plugin</a> to recreate the new images with the new JPEG setting in the media library.</p>    
+<p>If you wanted to change this you could use the following filter in your <code>functions.php</code>, but you would also have to use the <a href="" target="_blank">regenerate thumbnails plugin</a> to recreate the new images with the new JPEG setting in the media library.</p>  
+    
+<p>Also any such change only changes the <mark>alternate image sizes and not the full size image</mark>. These alternate image sizes are hidden from you  in the media library (some media library plugins will let you see all of these sizes).</p>    
 
   <pre><code style="white-space: pre-wrap !important;" >//Change the jpeg compression, but remember you have use the regenerate thumbnails plugin
 
