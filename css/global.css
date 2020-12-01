@@ -101,3 +101,42 @@ place-items: center;
     width:100px;
     height:auto;
 }
+
+        @media (max-width:768px){
+            ul.dropdown {
+                width:100% !important;
+            }    
+            
+        }
+        ul.dropdown {
+            display: none;
+            padding: 0;
+            background: #fff;
+            border: 1px solid #eee;
+            width: 50%;
+            margin: 13px auto 0 auto ;
+            z-index: 999;
+        }
+
+        ul.dropdown li {
+            list-style-type: none;
+            
+        }
+
+        ul.dropdown li a {
+            text-decoration: none;
+            padding: .7em;
+            display: block;
+            border-bottom: 1px dotted #ccc;
+            color:#07a;
+        }
+        ul.dropdown li a:hover{
+            background:#eee;
+        } 
+        a.dropdown-toggle {
+            padding:.55rem .75rem .75rem .75rem; 
+            border:1px solid #07a;
+            color:#07a;
+            background:transparent;
+            text-decoration: none;
+        }
