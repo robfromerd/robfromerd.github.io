@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Code Samples and More for DIGD417</title>
+    <title>Code Samples and More for DIGD200</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
     <link rel="icon" href="images/favicon.png" />
@@ -20,80 +20,79 @@
 
 <h1>Code Samples for Week 1</h1>
 <nav id="main-nav"></nav>
-<h2 class="text-center">Code Sample <mark>1.2</mark>: <em>Browser Defaults</em></h2>
+<h2 class="text-center">Code Sample <mark>1.2</mark>: <em>Handcoding Images and More</em></h2>
 <div class="toolbar"><div class="toolbar-item"> <button class="btn-topcopy" id="btn-copy" data-clipboard-action="copy" data-clipboard-target="pre.language-markup" aria-label="Copied">Copy</button></div></div>
-<script type="text/plain" class="language-markup line-numbers"><!DOCTYPE html>
-<html>
+<script type="text/plain" class="language-markup line-numbers"><!doctype html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+<meta charset="utf-8">
+ 
+<title>Change This Title, See Image</title>
+
+<meta name="description" content="This will show in search engine results">
+ 
+<meta name="author" content="Change this to your organization">
+ 
 <style>
-/* INSTRUCTIONS: 
-1. The client wants the image to bleed full width, the text in the paragraphs to be 80% 
-of the browser window (but wants a smaller margin on mobile) and wants the code to 
-be semantically correct.  
-
-2. First link the bootstrap-reboot.css file (from the URL below) within the head
-of this file.
-
-3. Begin to build a semantic structure for the page that allows the
-image to go full width but the text to have a margin from the edge of
-the browser. 
-
-4. 
-a.) Wrap everything within the body in a main element, 
-b.) create two section elements within it, 
-c.) put the full width image in the first section, 
-d.) put the paragraphs within a div in the second section
-e.) write a rule that sets the paragraphs off from the edge of the browser via 
-a class you create and add to this div.
-f.) write a media query to change the div's width to be larger at a mobile size. 
-*/
-
-
-.designcenter {
+/* style rules can go in here */
+body {
+/* TASK: change this color */
+background:gray;
+/* TASK: divide the 100% by 2 */
+width:100%;
+margin:auto;
+}
+img {
 width:100%;
 height:auto;
 }
-.mockup {
-margin:auto;
-width:100%;
-max-width:600px;
-display:block;
+h1 {
+/* TASK: make the heading centered using center instead of right */
+text-align:right;
 }
-
 </style>
-<title>Don't forget to change the title</title>
+   
 </head>
+
 <body>
+<!-- This is where the words and images that show in the browser window go. --> 
+<!-- Change the text in the heading -->
+<h1>Hand Coding</h1>
+<!-- Delete the next paragraph -->
+<p>Hand coding is fun.</p> 
+<!-- TASK: delete this ordered list -->
+<ol>
+<li>First item</li>
+<li>Second item</li>     
+<li>Third item</li>
+</ol> 
 
-<img src="https://robfromerd.github.io/images/designcenter1600.jpg" class="designcenter">
-<h1>The heading</h1>
-
-<p>Browsers have a default margin of 8 pixels on the body element. (If you inspect the body 
-element, you will see the "user agent stylesheet" sets the body to have an 8px margin.) 
-However, the client wants the image of the design center to bleed full width 
-with the text's line length limited at a desktop view.</p>
-
-<p>They even gave you 
-a mockup they made in Figma:</p>
-<p><img src="https://robfromerd.github.io/images/figmamockupforweek1.jpg" alt="mockup" class="mockup"></p>
-
-<p>What to do? See the instructions in the comment within the style block.</p>
-
-<h2>Background</h2>
-<p>Working developers today do not write a whole bunch of 
-browser default rules. Instead they use a pre-made set of rules <a href="https://raw.githack.com/twbs/bootstrap/v4-dev/dist/css/bootstrap-reboot.css">like this one from Bootstrap</a>.
-
-<p><a href="https://codepen.io/robfromerd/pen/BaKpeBe">Here is a Codepen example</a> 
-of different ways of starting out with either a reboot or 
-"normalized" version of these pesky browser resets.</p>
+<!-- TASK: put the URL for the moon image https://learnweb.link/test/images/moon.png inside
+the src="" double quotes below -->
+<img src="">
+<p>Here are some facts about the moon:</p>
+<ul>
+<li>first fact</li>
+<li>another fact</li>
+<li>yet another fact</li>
+<li>and yet another fact</li>    
+</ul> 
+    
 </body>
-</html>
 
+</html>
 </script>
 
+    
+ 
+<div class="jumbotron mt-2">
+    <h2 class="text-center strong">This Is What the Above Code Looks Should Look When Complete When Viewed in a Browser:</h2>
+
+    <img src="../images/week2.png" class="width-75">
+    
+    </div>    
     
     
     

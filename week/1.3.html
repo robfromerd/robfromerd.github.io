@@ -20,47 +20,48 @@
 
     <h1>Code Samples for Week 1</h1>
     <nav id="main-nav"></nav>
-    <h2 class="text-center">Code Sample <mark>1.1</mark>: <em>Intro to Handcoding</em></h2>
+    <h2 class="text-center">Code Sample <mark>1.3</mark>: <em>The Viewport Meta Tag</em></h2>
 <div class="toolbar"><div class="toolbar-item"> <button class="btn-topcopy" id="btn-copy" data-clipboard-action="copy" data-clipboard-target="pre.language-markup" aria-label="Copied">Copy</button></div></div>
-<script type="text/plain" class="language-markup line-numbers"><!doctype html>
-
+<script type="text/plain" class="language-markup line-numbers"><!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+<!-- INSTRUCTIONS (once code saved to your computer): INSPECT THE PAGE IN CHROME, 
+CLICK THE DEVICE PREVIEW ICON, CHOOSE A PHONE IN THE DROPDOWN, NOTICE HOW THE DESIGN
+FITS THE DEVICE WIDTH, THEN COMMENT OUT THE FOLLOWING META TAG, REFRESH THE PAGE, 
+NOTICE HOW THE DESIGN BECOMES A SHRUNKEN VERSION OF THE DESKTOP VIEW -->  
+ <meta name="viewport" content="width=device-width, initial-scale=1" /> 
 
-<head>
- 
-<meta charset="utf-8">
- 
-<title>All About Handcoding</title>
-
-<meta name="description" content="This will show in search engine results">
- 
-<meta name="author" content="Change this to your organization">
- 
-<style>
-/* style rules can go in here */
-</style>
+    <title>Viewport Demo</title>
+    <link rel="stylesheet" href="https://studio252.netlify.app/css/week1sample.css">
    
 </head>
 
 <body>
-<!-- This is where the words and images that show in the browser window go. --> 
-<h1>Hand Coding</h1>    
-<p>Hand coding is fun.</p> 
 
-<p>The three best bands/musical groups are:</p>
-<!-- Put an ORDERED list here -->
+    <h1 text-center>People Design in the Design Center</h1>
+    <p class="text-center">On mobile with the meta tag, the navigation below should be <strong>centered</strong> but on desktop it should be <strong>aligned to the right. When we comment out the viewport meta tag -- we lose this RESPONSIVE DESIGN when viewed on an actual phone.</strong>.</p>
+<div class="flex-container">
+  <div>Link 1</div>
+  <div>Link 2</div>
+  <div>Link 3</div>  
+</div>
+<img src="https://studio252.netlify.app/images/designcenter1600.jpg" alt="Art and design center">
 
-<p><strong>Philadelphia foods include:</strong></p>
-<!-- Put an UNORDERED list here -->
 </body>
-
 </html>
 
 </script>
 
     
  
-  
+<div class="jumbotron mt-2">
+    <h2 class="text-center strong">This Is What Happens When You Omit the Viewport Meta Tag on a Mobile Device:</h2>
+
+    <img src="../images/theillustrationViewport.jpg" class="width-75">
+    
+    </div>    
     
     
     
