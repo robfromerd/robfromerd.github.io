@@ -145,3 +145,6 @@ a.active span {
     font-weight:bold;
     background:yellow;
 }
+#main-nav {
+    margin-bottom:1.5rem;
+}
