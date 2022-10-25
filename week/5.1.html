@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Code Samples and More for Interactive Graphics</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="icon" href="images/favicon.png" />
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100;300;400;500;600&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/prism.css">
+          <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>  
+</head>
+
+<body>
+
+    <h1>Week 5, Part 1</h1>
+<nav id="main-nav"></nav>
+    <h2 class="text-center">Code Sample <mark>5</mark>: <em>Backgrounds</em></h2>
+
+ <h2>Background Images !!!!</h2>
+<p>Let's explore this example from the MDN developer documentation:<strong><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image" target="_blank" class="" rel="noreferrer noopener">https://developer.mozilla.org/en-US/docs/Web/CSS/background-image</a></strong></p>
+<p>Let's also explore this HERO image with a background:<br><a href="https://www.w3schools.com/cssref/tryit.php?filename=trycss3_background_hero" target="_blank" class="" rel="noreferrer noopener">https://www.w3schools.com/cssref/tryit.php?filename=trycss3_background_hero</a></p>
+<p>Background images differ from Foreground images in that they easily allow text and other elements to sit "on top" of them.</p>
+<p>They are good for RESPONSIVE layouts where you want the mobile view to still show the image instead of stacking it below the text like you would typically see in a responsive layout.</p>
+
+<h3>Why Not Just Use a Foreground Image?</h3>
+<p>When you use a foreground image that is a mood-setting image (e.g., a fanciful illustration like this one) as opposed to a content image (e.g., a photo of an event), sometimes when it <em>stacks them the image just seems to be hanging out there without relation to the text above it</em> when the screen is narrowed to a mobile view or if viewed on a phone. Here is an animated GIF showing this issue:<br><img src="../images/toshowForegroundApproach.gif" alt="toshowForegroundApproach.gif" width="452" height="399"></p>
+<p>Instead we can use a background image. (Don't get me wrong many times stacking is just fine.)</p>
+<p>To see the background approach live on the web (we can use the responsive design inspector to see how it will look on a mobile device):<br><a href="https://harcum-rob-portfolio.netlify.app/" target="_blank" class="external fOyUs_bGBk fbyHH_bGBk fbyHH_vIby" rel="noreferrer noopener">https://harcum-rob-portfolio.netlify.app/</a></p>
+<h3>Background Options</h3>
+<p>Let's look at two different options for a complex background CSS style here:<br><strong><a style="background-color: #fbeeb8;" href="https://codepen.io/robfromerd/pen/rNwXgxJ" target="_blank" class="external fOyUs_bGBk fbyHH_bGBk fbyHH_vIby" rel="noreferrer noopener">https://codepen.io/robfromerd/pen/rNwXgxJ</a></strong></p>
+<p>There are different ways for the background image to render:</p>
+<ul class="instructions">
+<li>In the CodePen example I HAVE to combine the background with a CSS gradient so that the text is LEGIBLE!!!!-- this is ESPECIALLY IMPORTANT for visually disabled users.&nbsp;</li>
+<li>The code looks complex in the CSS rule but I can walk you through it:<br>
+ <code>   
+    &nbsp;.specialback-to-bottom {<br>&nbsp; &nbsp; background-image: linear-gradient(&nbsp;<br>&nbsp; &nbsp; &nbsp; rgba(0, 0, 0, 0.5),<br>&nbsp; &nbsp; &nbsp; rgba(0, 0, 0, 0.4),<br>&nbsp; &nbsp; &nbsp; rgba(0, 0, 0, 0.3),<br>&nbsp; &nbsp; &nbsp; rgba(0, 0, 0, 0.2),<br>&nbsp; &nbsp; &nbsp; rgba(0, 0, 0, 0.1),<br>&nbsp; &nbsp; &nbsp; rgba(0, 0, 0, 0) &nbsp;<br>&nbsp; &nbsp; ),<br>&nbsp; &nbsp; url("https://assets.codepen.io/1907266/flat2.png");<br>&nbsp; &nbsp; &nbsp;background-repeat: no-repeat;<br>&nbsp; &nbsp; &nbsp;background-position: right top 10%;<br>&nbsp; &nbsp; &nbsp;background-size:cover ;<br>&nbsp; &nbsp; &nbsp;color:cornsilk;<br>&nbsp; }</code></li>
+<li><code><strong>background-size:cover</strong></code> combined with <code><strong>background-repeat: no-repeat</strong></code> and <code><strong>background-position</strong></code> makes the background stretch out to cover the element that it is set on. Sometimes you have to adjust what is in your image to have it sit where you want:<br><img src="../images/explainingmovingtheback.png" alt="explainingmovingtheback.png" width="544" height="622"></li>
+<li><strong><code>background-size:contain</code> </strong>combined with<strong> <code>background-position </code></strong>and <code><strong>background-repeat: no-repeat</strong> </code>will make sure the entire background image is always visible.&nbsp;</li>
+<li>There are websites that let you grab free open source illustrations that are good for background images:<strong><a href="https://undraw.co/illustrations" target="_blank" class="" rel="noreferrer noopener"></a></strong></li>
+<li>Backgrounds can also<strong> repeat </strong>-- this can be tricky but can be used to nice effect to lend a <strong>subtle pop </strong>to certain elements. The trick with repeating background elements is to make or find one that SEAMLESSLY repeats without unsightly gaps.&nbsp;<strong></strong></li>
+<li>There are websites that help you create an inline SVG that repeats perfectly:<br><span style="color: #169179; background-color: #fbeeb8;"><strong><a style="color: #169179; background-color: #fbeeb8;" href="http://www.heropatterns.com/" target="_blank" class="" rel="noreferrer noopener">http://www.heropatterns.com/</a></strong></span></li>
+<li>Notice how I made the <em>About My Program</em> box pop without making the text hard to read:<br><img src="../images/subletback.png" alt="subletback.png" width="716" height="558"><hr></li>
+</ul>
+<h3>Color Wheels Can Be Helpful for Making Foreground/Background Choices:<br><a href="https://color.adobe.com/create/color-wheel" target="_blank" class="" rel="noreferrer noopener">Adobe Color</a></h3>
+    
+  
+    
+    
+    
+    <script src="../js/prism.js"></script>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/copy-button.js"></script>  
+</body>
+</html>
